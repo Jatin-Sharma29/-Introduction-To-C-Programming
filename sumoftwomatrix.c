@@ -22,6 +22,7 @@ int main(){
             printf("%d ",sum);
         }
         printf("\n");  
-    }            
+    }
+    return 0;
     }
 // for storing sum of matrix in another matrix we do it like this: result[i][j]=arr[i][j]+arr1[i][j].
