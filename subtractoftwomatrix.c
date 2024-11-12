@@ -15,11 +15,13 @@ int main(){
         for(int j=0;j<m;j++)
         scanf("%d",&arr1[i][j]);
     }
+    printf("Subtraction of two matrix=\n");
       for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
             sub=arr[i][j]-arr1[i][j];
-             printf("subtraction=%d\n",sub);
+             printf("%d",sub);
         }
+          printf("\n");
        
     }
 }
