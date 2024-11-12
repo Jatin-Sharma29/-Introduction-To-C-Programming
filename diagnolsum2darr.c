@@ -15,4 +15,5 @@ int main(){
         }
     printf("sum of right(main) diagnol is =%d\n",sum);
     printf("sum of left(minor) diagnol is=%d",sum1);
+    return 0;
 }
