@@ -18,7 +18,6 @@ int main(){
             arr[j+1]=arr[j];
             j--;
         }
-        if(i!=(j+1))
         arr[j+1]=val;
     }
     printf("After sorting elements are;\n");
