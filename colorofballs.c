@@ -10,8 +10,8 @@ int main(){
         }
     }
     for(int i=0;i<n;i++){
-        count=1;
-        for(int j=i+1;j<n;j++){
+        count=0;
+        for(int j=0;j<n;j++){
             if(arr[i]==arr[j]){
                 count++;
             }
