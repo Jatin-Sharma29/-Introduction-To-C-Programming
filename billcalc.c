@@ -14,7 +14,7 @@ int main(){
         printf("%d %.2f", ID,amnt);
         }
     } else if (n >= 200 && n < 400) {
-        amnt = n * 1.50;
+        amnt = 199*1.20+(n-199)*1.50;
         if(amnt > 400) {
             printf("%d %.2f", ID, amnt + 0.15 * amnt);
         } else {
@@ -22,12 +22,12 @@ int main(){
         }
     } else if (n>=400 &&n<600)
     {
-        amnt=n*1.80;
+        amnt=199*1.20+200*1.50+(n-399)*1.80;
             printf("%d %.2f", ID, amnt + 0.15 * amnt);
     }
     else 
     {
-        amnt=n*2.00;
+        amnt=199*1.20+200*1.50+200*1.80+(n-599)*2.00;
         printf("%d %.2f",ID,amnt+0.15*amnt);
 
     }
