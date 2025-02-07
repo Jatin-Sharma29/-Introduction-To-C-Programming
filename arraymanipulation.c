@@ -23,9 +23,13 @@ void insert(int **arr,int *n){
     scanf("%d",&key);
     printf("enter the index at which you want to insert the element ");
     scanf("%d",&index);
-    *arr=realloc(*arr,(*n+1)*sizeof(int));
-    for(int i=*n-1;i>index;i--){
-        (*arr)[i]=(*arr)[i+1];
+    if(index>*n || index<*n){
+    printf("Invalid Position !!!!!\n");
+    exit(0);
+    }
+    *arr=realloc(*arr,(*n + 1)*sizeof(int));
+    for(int i=*n-1;i>=index;i--){
+        (*arr)[i+1]=(*arr)[i];
     }
     (*arr)[index]=key;
     printf("Array after inserting the element is:\n");
@@ -33,41 +37,52 @@ void insert(int **arr,int *n){
         printf("%d ",(*arr)[i]);
     }
 }
-void rotate_left(int *arr,int n){
-    int temp=arr[0];
-    for(int i=0;i<n;i++){
-        arr[i]=arr[i+1];
+void update(int *arr,int *n){
+    int val,index;
+    printf("enter the element you want to update :  ");
+    scanf("%d",&val);
+    printf("Enter the Index of the element you want to update: ");
+    scanf("%d",&index);
+    if(index>*n){
+        printf("Invalid Position !!!\n");
+        exit(0);
     }
-    arr[n-1]=temp;
-    printf("Array after rotating left is:\n");
-    for(int i=0;i<n;i++){
+    arr[index]=val;
+    printf("Array after updating the element is:\n");
+    for(int i=0;i<*n;i++){
         printf("%d ",arr[i]);
     }
 }
-void rotate_right(int *arr,int n){
-    int temp=arr[n-1];
-    for(int i=n-1;i>=0;i--){
-        arr[i]=arr[i-1];
+void search(int *arr,int *n){
+    int val;
+    printf("enter the element you want to search ");
+    scanf("%d",&val);
+    for(int i=0;i<*n;i++){
+        if(arr[i]==val){
+        printf("Element found at index %d\n",i);
     }
-    arr[0]=temp;
-    printf("Array after rotating right is:\n");
-    for(int i=0;i<n;i++){
-        printf("%d ",arr[i]);
-    }
+}
+}
+void traverse(int *arr,int *n){
+    printf("Elements of array are :");
+    for(int i=0;i<*n;i++){
+    printf("%d ",arr[i]);
+}
 }
 int main(){
     printf("Enter the operation you want to perform\n");
     printf("1.delete an element\n2.insert an element\n");
-    printf("3.rotate the array to the left\n4.rotate the array to the right\n5.exit\n");
+    printf("3.update the element of an array\n4.search an element from array\n5.traverse all elements of the array\n");
+    printf("6.exit\n");
     int choice;
     scanf("%d",&choice);
-    if(choice==5){
+    if(choice==6){
         return 0;
     }
     int n;
     printf("enter the size of array ");
     scanf("%d",&n);
-    int *arr=(int*)malloc(n*sizeof(int));
+    int *arr=(int*)malloc(100*sizeof(int));
     printf("enter the elements of array ");
     for(int i=0;i<n;i++){
         scanf("%d",arr+i);
@@ -80,11 +95,14 @@ int main(){
             insert(&arr,&n);
             break;
         case 3:
-            rotate_left(arr,n);
+            update(arr,&n);
             break;
         case 4:
-            rotate_right(arr,n);
+            search(arr,&n);
             break;
+        case 5:
+        traverse(arr,&n);
+        break;
         default:
             printf("Invalid choice");
     }
